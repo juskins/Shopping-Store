@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+nav{
+    background-color: rgb(1, 1, 51);
+    text-align: center;
+    padding: var(--padding);
+
+}
+nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap);
+    list-style-type: none;
+}
+a{
+    text-align: center;
+    color: white;
+}
+.checkout{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+
+}
+.checkout img{
+    width: 25px;
+}
+.checkout small{
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 1.1rem;
+    color: white;
+}
+

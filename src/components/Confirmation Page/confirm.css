@@ -1,0 +1,25 @@
+.confirm-page{
+    margin: 4rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.confirm-page img{
+    width: 200px;
+    height: 200px;
+}
+.backBtn{
+    margin-top: 4rem;
+    border-radius: 10px;
+    border: 1px solid;
+    height: 50px;
+    padding: 10px 20px;
+}
+.backBtn img{
+    width: 30px;
+    margin-right: 7px;
+}
+.confirm-page a{
+    color: black;
+}

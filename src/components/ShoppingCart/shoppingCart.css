@@ -1,0 +1,135 @@
+.checkOut-page{
+    color: rgb(1, 1, 51);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 2rem 5rem;
+   
+}
+.checkOut-page img{
+    width: 20px;
+}
+.cart-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.cart-header h1{
+    padding-bottom: 20px;
+}
+.cart-header .top-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.backBtn{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.top-header img{
+    margin-right: 10px;
+    width: 2.5rem;
+}
+.shipping-container{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 40px 0px;
+    gap: var(--gap);
+    width: 100%;
+
+}
+.left-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    width: 80%;
+}
+.left-container .keep-shopping{
+    padding: 40px;
+    border: 2px dotted;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
+}
+.carts-products{
+    border-bottom: 1px solid;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+}
+.carts-products .product{
+    display: flex;
+    justify-content: flex-start;
+    height: 200px;
+    gap: 20px;
+    position: relative;
+    border: 1px solid #dedbdb;
+    padding: 10px;
+
+}
+
+
+.react-img img{
+    width: 150px;
+    max-height: 150px;
+}
+.kit{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.kit .blade{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.blade h3{
+    text-align: left;
+    padding-bottom: 10px;
+}
+.btn-container{
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid;
+    padding:5px;
+    max-width: 100px;
+}
+.btn-container img{
+    cursor: pointer;
+}
+.close{
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+}
+.close-price{
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+}
+
+
+.right-container{
+    background-color: rgba(255, 166, 0, 0.651);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 400px;
+}
+
+.pricing-details{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.pricing-details > div{
+    display: flex;
+    justify-content: space-between;
+}

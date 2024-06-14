@@ -25,7 +25,7 @@ const ProductItem = ({product})=>{
             document.querySelector('.ul').scrollIntoView();
             setTimeout(() => {
                 setMessage('');
-                document.querySelector('.productItem').scrollIntoView()
+                document.querySelector('.productItem').scrollIntoView();
             }, 2500);
         }
 

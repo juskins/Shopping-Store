@@ -13,6 +13,7 @@ const ProductLists = ()=>{
     // const [addToCart] = useOutletContext()
 
     useEffect(()=>{
+        const controller = new AbortController()
         const fetchProducts = async()=>{
             try{
                 const response = await fetch('https://fakestoreapi.com/products');
@@ -28,8 +29,13 @@ const ProductLists = ()=>{
             finally{
                 setLoading(false)
             }
+            
         }
         fetchProducts()
+
+        return ()=>{
+            controller.abort()
+        }
     },[])
 
     return(

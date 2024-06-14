@@ -11,6 +11,7 @@ const Category = ()=>{
 
     const {productId} = useParams()
     useEffect(()=>{
+        const controller = new AbortController()
         const getCategories = async()=>{
             try{
                 const response = await fetch(`https://fakestoreapi.com/products/category/${productId}`);
@@ -29,11 +30,19 @@ const Category = ()=>{
             
         }
         getCategories()
+
+
+        return()=>{
+            controller.abort()
+        }
     },[productId])
     return(
         <div>
             <Home />
             {loading && <h2>Loading......</h2>}
+            {error && <div>
+            <h2>Error Encountered while fetching Data</h2>
+            <h2>Kindly refresh</h2></div>}
             <div className="products">
                 {products?.map(product=>{
                     return <ProductItem product={product} key={product.id}/>

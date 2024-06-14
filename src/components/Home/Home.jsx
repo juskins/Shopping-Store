@@ -1,26 +1,24 @@
-import ProductLists from "../ProductsList/ProductList";
-import { Link, Outlet } from "react-router-dom";
+import { Link} from "react-router-dom";
 import './home.css'
+import { useContext } from "react";
+import { ShopContext } from "../../App";
 
 
-const Home = ({cartCount, setCartCount, addToCart,message})=>{
-
+const Home = ()=>{
+    // const {message}= useOutletContext();
+    const {message} = useContext(ShopContext)
 
     return(
         <div className="home">
             <div className="btnContainer">
                 <button><Link to={`/`}>All</Link></button>
-                <button><Link to={`/products/men's clothing`}>Men's Clothing</Link></button>
-                <button><Link to={`/products/women's clothing`}>Women's Clothing</Link></button>
-                <button><Link to={`/products/electronics`}>Electronics</Link></button>
-                <button><Link to={`/products/jewelery`}>Jeweleries</Link></button>
+                <button><Link to={`/products/category/men's clothing`}>Men's Clothing</Link></button>
+                <button><Link to={`/products/category/women's clothing`}>Women's Clothing</Link></button>
+                <button><Link to={`/products/category/electronics`}>Electronics</Link></button>
+                <button><Link to={`/products/category/jewelery`}>Jeweleries</Link></button>
             </div>
             
             <h3 className="message">{message}</h3>
-
-            <Outlet addToCart={addToCart}/>
-            
-
             
         </div>
     )

@@ -3,11 +3,14 @@ import plus from '../../assets/plus.svg'
 import checked from '../../assets/checkbox-multiple-marked-circle.svg'
 import leftArrow from '../../assets/arrow-left-circle.svg'
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { ShopContext } from '../../App'
 
 
 
 
-const ConfirmationPage = ({cartCount,cartItems,setCartItems,setCartCount})=>{
+const ConfirmationPage = ()=>{
+    const {setCartCount,setCartItems} = useContext(ShopContext)
     const clearCartItems = ()=>{
         setCartItems([])
         setCartCount(0)

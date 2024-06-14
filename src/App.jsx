@@ -1,20 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { createContext, useState } from 'react'
 import './App.css'
 import Nav from './components/Nav/Nav'
-import Home from './components/Home/Home'
+import { Outlet } from 'react-router-dom'
+export const ShopContext = createContext(null)
 
-function App({cartCount,setCartCount,addToCart,message}) {
-//   const [cartCount, setCartCount] = useState(0);
-//   const addToCart = ()=>{
-//     setCartCount(cartCount=>cartCount+1);
-//     console.log('addded ')
-// }
+function App() {
+    const [cartItems, setCartItems] = useState([]);
+    const [cartCount, setCartCount] = useState(0);
+    const [message, setMessage] = useState('')
+    const addToCart = ()=>{
+      setCartCount(cartCount=>cartCount+1);
+    }
+
   return (
     <>
-      <Nav cartCount={cartCount}/>
-      <Home cartCount={cartCount} setCartCount={setCartCount} addToCart={addToCart} message={message}/>
+      <ShopContext.Provider value={{cartItems,cartCount,setCartCount,message,setMessage,addToCart,setCartItems}}>
+          <Nav />
+          <Outlet />
+      </ShopContext.Provider>
     </>
   )
 }

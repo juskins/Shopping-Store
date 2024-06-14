@@ -1,18 +1,24 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import './productItem.css'
+import { useOutletContext } from 'react-router-dom';
+import { ShopContext } from '../../App';
 
-const ProductItem = ({products,addToCart,cartItems, setCartItems,message,setMessage})=>{
-    const addProductToCart = (id)=>{
+const ProductItem = ({product})=>{
+    // const {cartItems,setCartItems,addToCart,setMessage} = useOutletContext();
+    const {cartItems,addToCart,setCartItems,setMessage} = useContext(ShopContext)
+
+    const addProductToCart = ()=>{
         const newProduct = {
-            ...products,
+            ...product,
             qty:1
         }
 
-        let exists = cartItems.some(item => item.id === products.id && item.name === [products].name);
+
+        let exists = cartItems.some(item => item.id === product.id && item.name === product.name);
+
         if(!exists){
-            setCartItems([...cartItems,newProduct])
-            document.querySelector('.nav').scrollIntoView();
-            addToCart()
+            setCartItems([...cartItems,newProduct]);
+            addToCart();
         }
         else{
             setMessage('Already Added to Cart');
@@ -22,6 +28,10 @@ const ProductItem = ({products,addToCart,cartItems, setCartItems,message,setMess
                 document.querySelector('.productItem').scrollIntoView()
             }, 2500);
         }
+
+        
+
+        
         
         
     }
@@ -30,12 +40,12 @@ const ProductItem = ({products,addToCart,cartItems, setCartItems,message,setMess
     return(
         <div className="productItem">
             <div className="product-image">
-                <img src={products.image} alt="" />
+                <img src={product.image} alt="" />
             </div>
-            <div className="product-title">{products.title}</div>
-            <div className="reviews"><b>Reviews:</b> {products.rating.count}</div>
-            <div className="price">${products.price}</div>
-            <button onClick={()=>addProductToCart(products.id)}>Add to cart</button>
+            <div className="product-title">{product.title}</div>
+            <div className="reviews"><b>Reviews:</b> {product.rating.count}</div>
+            <div className="price">${product.price}</div>
+            <button onClick={()=>addProductToCart()}>Add to cart</button>
 
 
         </div>

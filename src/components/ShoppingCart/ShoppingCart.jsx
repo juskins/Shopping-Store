@@ -1,14 +1,18 @@
 import plus from '../../assets/plus.svg'
 import minus from '../../assets/minus.svg'  
-import checked from '../../assets/checkbox-multiple-marked-circle.svg'
 import close from '../../assets/close-circle.svg'
 import leftArrow from '../../assets/arrow-left-circle.svg'
 import './shoppingCart.css'
-import { useState } from 'react'
-import {Link} from 'react-router-dom'
+import { useContext } from 'react'
+import {Link, useOutletContext} from 'react-router-dom'
+import { ShopContext } from '../../App'
 
 
-const CheckOutPage = ({cartCount,cartItems,setCartItems,setCartCount})=>{
+const CheckOutPage = ()=>{
+    // const {cartItems,setCartCount,setCartItems} = useOutletContext();
+    const {cartItems,cartCount,message,addToCart,setCartCount,setCartItems} = useContext(ShopContext)
+
+
     const balance = cartItems.reduce((total,item)=>item.price + total, 0).toFixed(2)
 
     const removeFromCart = (id)=>{

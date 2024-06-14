@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import ProductItem from "../ProductItem/ProductItem";
+import Home from "../Home/Home";
 
-const Category = ({cartItems, setCartItems,addToCart,message,setMessage})=>{
+const Category = ()=>{
+    
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null)
     const [products, setProducts] = useState(null)
@@ -30,10 +32,11 @@ const Category = ({cartItems, setCartItems,addToCart,message,setMessage})=>{
     },[productId])
     return(
         <div>
+            <Home />
             {loading && <h2>Loading......</h2>}
             <div className="products">
-                {products?.map(products=>{
-                    return <ProductItem products={products} key={products.id} addToCart={addToCart} cartItems={cartItems} setCartItems={setCartItems} message={message} setMessage={setMessage}/>
+                {products?.map(product=>{
+                    return <ProductItem product={product} key={product.id}/>
                 })}
             </div>
         </div>
